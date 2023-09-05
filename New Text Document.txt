@@ -1,0 +1,6 @@
+1 = cc
+2 = bale
+3 = ring
+4 = shishe dodi
+5 = rang chragh jelo
+6 = nor zir mashin

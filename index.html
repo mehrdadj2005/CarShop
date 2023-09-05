@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="btn.css">
+</head>
+
+<body>
+    <main>
+        <h1 style="color: white; text-align: center; font-size: 5vh;">بیا قیمت ماشینی که دوست داری رو بدون</h1>
+        <div id="modalShop">
+            <label for="Company" id="">شرکت سازنده</label>
+            <select name="Company" id="Company">
+                <option value="سایپا">سایپا</option>
+                <option value="ایران خودرو">ایران خودرو</option>
+                <option value="آمیکو">آمیکو</option>
+                <option value="تالبوت">تالبوت</option>
+            </select>
+
+
+            <label for="YearOfConstruction" id="">سال ساخت</label>
+            <select name="YearOfConstruction" id="inputYC">
+                <option value="1402">1402</option>
+                <option value="1401">1401</option>
+                <option value="1400">1400</option>
+                <option value="1399">1399</option>
+                <option value="1398">1398</option>
+                <option value="1397">1397</option>
+                <option value="1396">1396</option>
+                <option value="1395">1395</option>
+                <option value="1394">1394</option>
+                <option value="1393">1393</option>
+                <option value="1392">1392</option>
+                <option value="1391">1391</option>
+                <option value="1390">1390</option>
+            </select>
+            <input type="number" id="inputCC" placeholder="سی سی">
+
+            <button id="btn">محاسبه</button>
+        </div>
+        <div id="modal">
+            <span id="back">🔙</span>
+            <h1 style="font-weight: bold; font-size:  5vh;">قیمت ماشین مورد نظر شما</h1>
+            <h2></h2>
+            <h4 style="font-weight: bold;font-size: 4vh;">مرسی که سایت منو انتخاب کردی</h4>
+        </div>
+    </main>
+
+    <script src="app.js"></script>
+</body>
+
+</html>
