@@ -24,7 +24,7 @@ input::-webkit-inner-spin-button {
     /* display: none; */
 }
 
-#inputCC {
+#CarOperation {
     border: none;
     outline: none;
     height: 5vh;

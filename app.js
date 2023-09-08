@@ -1,54 +1,53 @@
 let btn = document.querySelector('#btn').addEventListener('click', get)
 let Company = document.getElementById("Company")
 let inputYC = document.querySelector('#inputYC')
-let inputCC = document.querySelector('#inputCC')
+let CarOperation = document.querySelector('#CarOperation')
 let modal = document.querySelector('#modal')
 let modalShop = document.querySelector('#modalShop')
 let back = document.querySelector('#back').addEventListener('click', backe)
 let h2InModal = document.querySelector('#modal h2')
 
-
+// دستور محاسبه قیمت خودرو
 function get() {
-    let test = new Submit(Company.value, inputYC.value, inputCC.value)
+    let test = new Submit(Company.value, inputYC.value, CarOperation.value)
 
-    if (inputCC.value > 3800) {
-        inputCC.style.border = '0.5vh solid red'
-    } else if (inputCC.value == '') {
-        inputCC.style.border = '0.5vh solid red'
-    } else if (inputCC.value < 800) {
-        inputCC.style.border = '0.5vh solid red'
+    if (CarOperation.value == '') {
+        CarOperation.style.border = '0.5vh solid red'
     } else {
         modalShop.style.display = 'none'
         modal.style.display = 'flex'
-        h2InModal.innerHTML = `${test.manufacturer() + test.yearConstruction() + test.CC()}`
+        h2InModal.innerHTML = `${test.manufacturer() + test.yearConstruction() - test.Function()}`
     }
 }
 
+// تعین قیمت خودرو نسبت به شرکت سازنده ، سال ساخت و کارکرد 
 class Submit {
     constructor(x, y, z) {
         this.Company = x,
             this.inputYC = y,
-            this.inputCC = z
+            this.CarOperation = z
     }
 
+    // تعیین قیمت نسبت به شرکت سازنده ماشین
     manufacturer() {
         let x;
         if (this.Company == 'سایپا') {
-            x = 150000000
+            x = 300000000
         } else if (this.Company == 'ایران خودرو') {
-            x = 120000000
+            x = 250000000
         } else if (this.Company == 'آمیکو') {
-            x = 50000000
+            x = 180000000
         } else if (this.Company == 'تالبوت') {
-            x = 20000000
+            x = 150000000
         }
         return x
     }
 
+    // تعیین قیمت نسبت به سال ساخت ماشین
     yearConstruction() {
         let x;
         if (this.inputYC == 1402) {
-            x = 90000000
+            x = 100000000
         } else if (this.inputYC == 1401) {
             x = 80000000
         } else if (this.inputYC == 1400) {
@@ -77,36 +76,46 @@ class Submit {
         return x
     }
 
-    CC() {
+    // کاهش قیمت نسبت به کارکرد ماشین
+    Function() {
         let x;
-        if (this.inputCC >= 3000) {
-            inputCC.style.borderBottom = '3px solid #00ff00'
+        if (this.CarOperation >= 500000) {
+            x = 200000000
+        } else if (this.CarOperation >= 450000) {
+            x = 150000000
+        } else if (this.CarOperation >= 400000) {
             x = 100000000
-        } else if (this.inputCC >= 2500) {
-            inputCC.style.borderBottom = '3px solid #00ff00'
+        } else if (this.CarOperation >= 350000) {
             x = 80000000
-        } else if (this.inputCC >= 2000) {
-            inputCC.style.borderBottom = '3px solid #00ff00'
+        } else if (this.CarOperation >= 300000) {
+            x = 70000000
+        } else if (this.CarOperation >= 250000) {
+            x = 60000000
+        } else if (this.CarOperation >= 200000) {
             x = 50000000
-        } else if (this.inputCC >= 1500) {
-            inputCC.style.borderBottom = '3px solid #00ff00'
-            x = 40000000
-        } else if (this.inputCC >= 1200) {
-            inputCC.style.borderBottom = '3px solid #00ff00'
+        } else if (this.CarOperation >= 150000) {
             x = 30000000
-        } else if (this.inputCC >= 800) {
-            inputCC.style.borderBottom = '3px solid #00ff00'
-            x = 20000000
+        } else if (this.CarOperation >= 100000) {
+            x = 2500000
+        } else if (this.CarOperation >= 50000) {
+            x = 2000000
+        } else if (this.CarOperation >= 20000) {
+            x = 15000000
+        } else if (this.CarOperation >= 10000) {
+            x = 10000000
+        } else if (this.CarOperation >= 0) {
+            x = 0
         }
         return x
     }
 }
 
+// با کلیک بر دکمه برگشت همه محتوا به حالت اول برگردند
 function backe() {
     modalShop.style.display = 'flex'
     modal.style.display = 'none'
-    inputCC.value = ' '
-    inputCC.style.border = 'none'
+    CarOperation.value = ' '
+    CarOperation.style.border = 'none'
     inputYC.value = 1402
     Company.value = 'سایپا'
 }
